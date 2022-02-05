@@ -1,0 +1,140 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css')
+// $primary: -teal-600
+
+body
+	@apply bg-gray-900 text-white m-0
+	font-family: system-ui
+	box-sizing: border-box
+
+.container-table
+	maxWidth: 95vw
+	overflow: auto
+	table
+		overflow-x: auto
+		width: 100%
+	thead
+		@apply bg-teal-800
+		th
+			@apply p-2
+		th:not(th:nth-child(1))
+			text-align: right
+	tbody
+		@apply bg-teal-600 text-sm
+		td:not(td:nth-child(1))
+			min-width: 200px
+			text-align: right
+		a, button
+			@apply p-1 rounded-sm text-sm
+		a.edit, button.edit
+			@apply bg-blue-800
+		a.delete, button.delete
+			@apply bg-red-800 ml-2
+	td
+		@apply p-2
+
+#body
+	@apply mt-14
+	width: stretch
+.containers
+	@apply px-2 sm:px-12 #{!important}
+
+.btn-primary
+	@apply bg-blue-800 p-2
+
+.input-primary
+	background: #444444e6
+	color: white
+	&::placeholder
+		@apply text-gray-300
+	&:focus
+		@apply text-white
+.item-question
+	@apply flex items-center space-x-2 pl-0 sm:pl-4 p-2 border-t border-gray-600
+	&.odd
+		@apply bg-primary-middle
+	a:not(.chip, .profile)
+		@apply text-blue-400 hover:text-blue-300 p-1 text-xs sm:text-sm md:text-lg
+	.info
+		@apply ml-2 sm:ml-10 text-xs sm:text-sm
+		p
+			@apply p-1
+a.chip
+	@apply text-gray-300 bg-gray-600 p-1 rounded-sm text-xs sm:text-sm mt-2
+.btn-group-outline
+	@apply flex
+	a, button
+		@apply p-2 border border-gray-500
+		&.active
+			@apply bg-gray-600
+
+.menu-icon
+	@apply mr-2 block lg:hidden
+.sideleft-layer
+	@apply fixed left-0 top-0 h-screen w-full bg-gray-100 hidden
+	z-index: 999
+	background: #000000b3
+	backdrop-filter: blur(3px) saturate(99%)
+	&.open
+		@apply block
+
+.paginate
+	@apply flex space-x-2
+	@media (max-width: theme('screens.sm'))
+		a
+			@apply p-1 text-sm #{!important}
+	a
+		@apply bg-blue-800 p-2
+
+.alert-error
+	@apply p-2 bg-red-600 border border-red-400
+
+
+.sideleft
+	@apply fixed left-0 h-screen bg-main border-r border-gray-500 text-sm
+	top: 60px
+	width: 200px
+	z-index: 1000
+	transition: 0.8s all
+	margin-left: -100%
+	&.open
+		margin-left: 0px
+	a:hover
+		@apply bg-gray-700 transition-all
+	p
+		@apply font-medium
+	a, p
+		@apply p-2
+		&.active
+			@apply bg-gray-600 border-r-4 border-teal-600
+	div
+		a
+			@apply flex pl-4 #{!important}
+
+.footer
+	@apply flex p-2 md:p-10 bg-main
+	width: stretch
+	h5
+		@apply font-bold
+	.one
+		@apply flex flex-1
+		@media (max-width: theme('screens.md'))
+			@apply grid grid-cols-2 gap-4
+		// > div:nth-child(1)
+		// 	width: 80px
+		// 	@apply flex-none #{!important}
+		> div
+			@apply flex-1
+		a
+			@apply text-sm py-2
+		ul
+			@apply mt-2
+			li
+				@apply text-gray-300
+	.two
+		@apply text-sm
+		div a
+			@apply p-2
+		width: 200px

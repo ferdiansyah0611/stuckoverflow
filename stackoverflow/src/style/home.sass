@@ -1,0 +1,48 @@
+$h-sticky: calc(100vh - 70px)
+
+.home
+	@apply grid
+	grid-template-columns: 200px 1fr 250px
+	@media (max-width: theme('screens.lg'))
+		grid-template-columns: 0px 1fr 0px
+	.one, .three
+		@media (max-width: theme('screens.lg'))
+			visibility: hidden
+	.one
+		@apply sticky border-r border-gray-600 grid overflow-auto text-sm
+		top: 90px
+		height: $h-sticky
+		a:hover
+			@apply bg-gray-700 transition-all
+		p
+			@apply font-medium
+		a, p
+			@apply p-2
+			&.active
+				@apply bg-gray-600 border-r-4 border-teal-600
+		div
+			a
+				@apply flex pl-4 #{!important}
+	.two
+		> *
+			@apply p-0 sm:p-4 py-2
+		min-height: 100vh
+
+	.three
+		@apply sticky grid overflow-auto mb-2
+		top: 70px
+		height: $h-sticky
+		.section
+			@apply bg-primary-middle p-4 rounded-md
+			.item
+				i, span
+					@apply text-lg text-center
+				p:not(p:nth-child(1))
+					@apply my-2
+				p
+					@apply font-medium
+				div
+					@apply grid items-center mt-2
+					grid-template-columns: 50px 1fr
+					a
+						@apply text-sm p-2

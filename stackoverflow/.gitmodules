@@ -1,0 +1,3 @@
+[submodule "stackoverflow-clone.git"]
+	path = stackoverflow-clone
+	url = https://github.com/ferdiansyah0611/stackoverflow-clone.git
